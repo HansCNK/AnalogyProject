@@ -1,4 +1,33 @@
-- name: LaTeX linter
+- name: Github Action for LaTeX
   # You may pin to the exact commit or the version.
-  # uses: colinaaa/chktex-action@5dda098b973d69cdc61ace93fa7bfcef39efaade
-  uses: colinaaa/chktex-action@v1.1.2
+  # uses: xu-cheng/latex-action@79c8170fb031178e9339dc67726c3ac923b75b2f
+  uses: xu-cheng/latex-action@v2
+  with:
+    # The root LaTeX file to be compiled
+    root_file: main.tex
+    # Interpret the root_file input as bash glob pattern
+    glob_root_file: # optional
+    # The working directory for this action
+    working_directory: # optional
+    # Change directory into each root file's directory before compiling each documents.
+    work_in_root_file_dir: # optional
+    # The LaTeX engine to be invoked
+    compiler: # optional, default is latexmk
+    # Extra arguments to be passed to the LaTeX engine
+    args: # optional, default is -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+    # [Deprecated] Install extra packages by tlmgr
+    extra_packages: # optional
+    # Install extra packages by apk
+    extra_system_packages: # optional
+    # Install extra .ttf/.otf fonts.
+    extra_fonts: # optional
+    # Arbitrary bash codes to be executed before compiling LaTeX documents
+    pre_compile: # optional
+    # Arbitrary bash codes to be executed after compiling LaTeX documents
+    post_compile: # optional
+    # Instruct latexmk to enable --shell-escape
+    latexmk_shell_escape: # optional
+    # Instruct latexmk to use LuaLaTeX
+    latexmk_use_lualatex: # optional
+    # Instruct latexmk to use XeLaTeX
+    latexmk_use_xelatex: # optional
